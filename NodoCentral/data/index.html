@@ -1,0 +1,237 @@
+
+<!--**********************************************************
+// Author: Jesús Muñoz Martínez
+// Proyect: Trabajo Fin de Master: LUCES.
+// Master de Sistemas Electrónicos para Entornos Inteligentes
+// Root Node.
+// Description: index.html file
+//
+//************************************************************ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LUCES PANEL DE CONTROL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <h1>LUCES: Panel de control</h1>
+    </div>
+	
+	<div class="content">
+        <div class="section">
+            <h2>Información</h2>
+        </div>
+	    <div class="content">
+	        <table class="blueTable" style="height: 155px;" width="433">
+                <thead>
+                    <tr>
+				        <th>Nodo</th>
+				        <th>Lum. Amb. (Lx)</th>
+				        <th>Consumo(W/h)</th>
+				        <th>Presencia</th>
+						<th>Estado</th>
+				        <th>Brillo(%)</th>
+				        <th>Fallo</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+		        <tfoot>
+			        <tr>
+			            <td colspan="7">
+				            <div class="links"><a class="active" href="#">1</a> </div>
+			            </td>
+			        </tr>
+                </tfoot>
+            </table>
+	    </div>
+	</div>
+	
+	<div class="content">
+	    <div class="section">
+            <h2>Configuracion y control</h2>
+        </div>
+		
+        <div class="content">
+            <div class="card">
+                <p class="card-title">Modo de encendido:<select name="modo" id=selectMode>
+					<option value="" disabled selected>Seleccione un modo</option>
+					<option>Manual</option>
+			  		<option>Por luminosidad amb.</option>
+			  		<option>Temporizado</option>
+				</select></p>
+				<p class="card-title" id=selectLumDiv>Ajuste de intensidad:<select name="modo" id=selectLum>
+				<option value="" disabled selected>Seleccione un ajuste</option>
+				<option>Manual</option>
+				<option>Franja Horaria</option></select></p>
+				<div class="card-grid">
+					<div class="card"  id="card1">
+						<p class="card-title">Modo Manual</p>
+						<p class="card-info">Enciende o apaga las luminarias manualmente en cualquier momento:</p>
+						<input type="button" value="Encender" onclick="powerOn()"/>
+						<input type="button" value="Apagar" onclick="powerOff()"/>
+						<p class="state">Estado: <span id="statusOnOff"></span></p>
+						<p class="card-info">Ajusta la <b>intensidad de las luminarias:</b></p>
+						<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider1" min="0" max="100" step="1" value ="0" class="slider">
+						</p>
+						<p class="state">Brillo: <span id="sliderValue1"></span> &percnt;</p>
+					
+						<p class="card-info">Ajusta la intensidad de las luminarias en el caso de que <b>no se detecte uso de la vía</b>:</p>
+						<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider2" min="0" max="100" step="1" value ="0" class="slider">
+						</p>
+						<p class="state">Brillo sin uso de la vía: <span id="sliderValue2"></span> &percnt;</p>
+					
+					</div>
+					<div class="card" id="card2">
+						<p class="card-title">Encendido por luminosidad ambiente</p>
+						<p class="card-info">Ajusta el valor de luxes medidos en el ambiente que será usado para encender y apagar las luminarias.
+						</br>Como referencia la salida o puesta de sol en un día despejado son 660 Lux.</p>
+						<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider3" min="0" max="1000" step="1" value ="0" class="slider">
+						</p>
+						<p class="state">Luxes: <span id="sliderValue3"></span></p>
+						
+						<div id="cardL1">
+							<p class="card-title">Ajuste manual de intensidad</p>
+							<p class="card-info">Ajusta la <b>intensidad de las luminarias:</b></p>
+							<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider4" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo: <span id="sliderValue4"></span> &percnt;</p>
+
+							<p class="card-info">Ajusta la intensidad de las luminarias en el caso de que <b>no se detecte uso de la vía</b>:</p>
+							<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider5" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo sin uso de la vía: <span id="sliderValue5"></span> &percnt;</p>
+						</div>
+						<div id="cardL2">
+							<p class="card-title">Ajuste por franja horaria</p>
+							<p class="card-info">Selecciona el nivel de intensidad de las luminarias según la franja horaria:</p>
+							<p><input type="time" id="bTon1" name="appt" onchange="updateOnOff(this)"> - <input type="time" id="bT1_1" name="appt" readonly>
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux1" fname="Lux" onchange="updateLux(this)"></p>	
+							<p><input type="time" id="bT1_2" name="appt" onchange="update(this)"> - <input type="time" id="bT2_3" name="appt" readonly>
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux2" fname="Lux" onchange="updateLux(this)"></p>
+							<p><input type="time" id="bT2_4" name="appt" onchange="update(this)"> - <input type="time" id="bToff2" name="appt" onchange="updateOnOff(this)">
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux3" fname="Lux" onchange="updateLux(this)" ></p>
+
+							<p class="card-info">Ajusta la intensidad de las luminarias en el caso de que <b>no se detecte uso de la vía</b>:</p>
+							<p class="switch">
+								<input type="range" onchange="updateValue(this)" id="slider6" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo sin uso de la vía: <span id="sliderValue6"></span> &percnt;</p>
+						</div>
+					</div>
+					<div class="card" id="card3">
+						<p class="card-title">Por franja horaria</p>
+						<p class="card-info">Ajusta el valor de una franja horaria que será utilizada cada día para encender las luminarias.</p>
+						<label for="appt">Hora de encendido:</label>
+						<input type="time" id="timeOn4" name="appt" onchange="updateOnOff(this)"></br></br>
+						<label for="appt">Hora de apagado:</label>
+						<input type="time" id="timeOff5" name="appt" onchange="updateOnOff(this)">
+						<div id="cardL3">
+							<p class="card-title">Ajuste manual de intensidad</p>
+							<p class="card-info">Ajusta la <b>intensidad de las luminarias:</b></p>
+							<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider7" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo: <span id="sliderValue7"></span> &percnt;</p>
+
+							<p class="card-info">Ajusta la intensidad de las luminarias en el caso de que <b>no se detecte uso de la vía</b>:</p>
+							<p class="switch">
+							<input type="range" onchange="updateValue(this)" id="slider8" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo sin uso de la vía: <span id="sliderValue8"></span> &percnt;</p>
+						</div>
+						<div id="cardL4">
+							<p class="card-title">Ajuste por franja horaria</p>
+							<p class="card-info">Selecciona el nivel de intensidad de las luminarias según la franja horaria:</p>
+							<p><input type="time" id="bTTon6" name="appt" readonly> - <input type="time" id="bT1_5" name="appt" readonly>
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux4" fname="Lux" onchange="updateLux(this)"></p>	
+							<p><input type="time" id="bT1_6" name="appt" onchange="update(this)"> - <input type="time" id="bT2_7" name="appt" readonly>
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux5" fname="Lux" onchange="updateLux(this)"></p>
+							<p><input type="time" id="bT2_8" name="appt" onchange="update(this)"> - <input type="time" id="bTToff7" name="appt" readonly>
+							<label class="card-info" for="fname">Brillo (0-100%):</label>
+							<input type="range" id="bTLux6" fname="Lux" onchange="updateLux(this)"></p>
+							<p class="card-info">Ajusta la intensidad de las luminarias en el caso de que <b>no se detecte uso de la vía</b>:</p>
+							<p class="switch">
+								<input type="range" onchange="updateValue(this)" id="slider9" min="0" max="100" step="1" value ="0" class="slider">
+							</p>
+							<p class="state">Brillo sin uso de la vía: <span id="sliderValue9"></span> &percnt;</p>
+						</div>
+					</div>
+				</div>	
+            </div>
+        </div>
+		<div class="content">
+			<div class="card"  id="cardEmail">
+				<p class="card-title">Cuenta de correo de mantenimiento</p>
+				<p class="card-info">Recibe alertas en caso de fallo y otros avisos en la cuenta indicada en el siguiente campo:</p>
+				<input type="email" id="email" size="30" required>
+				<input type="button" value="Guardar" onclick="saveEmail()"/>	
+			</div>
+        </div>
+<!-- 		<div class="content">
+			<div class="card"  id="cardFileConfig">
+			<p class="card-title">Archivo de configuración</p>
+			<p class="card-info"><label for="loadFile">Desargar archivo de configuracion:</label><input type="button" value="Descargar" onclick="DownloadFile('config.txt')" /></p>
+			<p class="card-info"><label">Cargar archivo de configuracion:</label></p>
+	
+			<form method="post" enctype="multipart/form-data">
+			<input type="file" name="name">
+			<input class="button" type="submit" value="upload">
+			</form>
+			</div>   
+		</div> -->
+    <div class="content">
+        <div class="section">
+            <h2>Registro del sistema</h2>
+        </div>
+        <div class="content">
+            <div class="card">
+            <p><input type="button" value="Descargar" onclick="DownloadFile('lucesLog.txt')" />
+            <input type="button" value="Borrar Registro" onclick="clearLog()"/>
+            <button onclick="refreshIframe();">Recargar registro</button></p>
+            <iframe name="log" style="width: 90%; height: 200px; overflow: show;" src="lucesLog.txt" width="90" height="90" scrolling="yes">Iframes not supported</iframe>
+            </div>
+        </div>
+    </div>
+	<div class="section">
+		<h2>Modo de configuración del punto de acceso</h2>
+	</div>
+	<div class="content">
+		<div class="card"  id="cardMode">
+			<p class="card-info">En el modo de configuración podrá configurar la red Wifi a la que desea conectarse, actualizar el firmware y consultar información técnica del hardware.</p>
+			<p ><input type="button" value="Ir a modo de configuración" onclick="gotoConfigMode()"/></p>
+		</div>   
+	</div>
+
+<!--     <div class="content">
+        <div class="section">
+            <h2>Actualizar firmware</h2>
+        </div>
+		<div class="content">
+			<div class="card"  id="cardFirm">
+			<p class="card-title">Actualizar Firmware</p>
+			<p class="card-info"><label for="loadFirm">Cargar archivo:</label>
+			<input type="file" id="loadFirm" name="loadFirm"accept=".bin"></p>
+			<p ><input type="button" value="Enviar" onclick="saveFile(this)"/></p>
+			</div>   
+		</div>
+    </div>  -->   
+ 
+	<script src="script.js"></script>
+</body>
+</html>
+
