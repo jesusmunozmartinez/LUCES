@@ -1,7 +1,7 @@
 # LUCES
 ## TFM LUCES Master SEEI
 #### TITULACIÓN: Máster en Sistemas Electrónicos para Entornos Inteligentes
-#### TÍTULO: LUCES: Sistema inalámbrico de control de luminarias
+#### TÍTULO: "LUCES: Sistema inalámbrico de control de luminarias"
 ##### PALABRAS CLAVE: LUCES, ILUMINACIÓN, MESH, PCB, RED, SENSORES.
 #### RESUMEN:
 Este proyecto consiste en el desarrollo hardware, software y documentación de un sistema de control de iluminación inalámbrico. Este sistema permite integrar una luminaria convencional dentro de un sistema de control inteligente conectado a Internet. Su uso está orientado a la iluminación de espacios públicos como calles y parques. El control de encendido y de los niveles lumínicos de las luminarias integradas en el sistema, está basado en temporizaciones horarias, luminosidad ambiente o solar y presencia de usuarios en la vía iluminada. El sistema avisa por correo electrónico en caso de fallo de luminaria y proporciona información del consumo eléctrico, luminosidad ambiente, uso de la vía, etc. La arquitectura está basada en una red WiFi mallada con motas que controlan las luminarias y un nodo central que hace de puente con internet y proporciona el acceso a la gestión del sistema. La verificación de los requisitos se ha realizado sobre los prototipos funcionales desarrollados. Concluir que este sistema destaca por proporcionar la reducción del consumo eléctrico e inicia la posibilidad de integración de sistemas de iluminación en las “Ciudades inteligentes”. 
