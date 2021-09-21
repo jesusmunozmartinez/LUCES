@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name ESP-12S)(type Legacy)(uri D:/Jesus/googledrive/UMA/MASTER_SEEI/16.-TFM/3.-Planos/Librerías/LIB_ESP-12S/ESP-12S/KiCad/ESP-12S.lib)(options "")(descr "")(disabled))
+  (lib (name ESP12)(type Legacy)(uri D:/Jesus/googledrive/UMA/MASTER_SEEI/16.-TFM/3.-Planos/Librerías/ESP12/ESP12.lib)(options "")(descr ""))
+)
