@@ -1,5 +1,5 @@
 # LUCES
-TFM LUCES Master SEEI
+## TFM LUCES Master SEEI
 DEPARTAMENTO DE TECNOLOGÍA ELECTRÓNICA
 TITULACIÓN: Máster en Sistemas Electrónicos para Entornos Inteligentes
 TÍTULO: LUCES: Sistema inalámbrico de control de luminarias
