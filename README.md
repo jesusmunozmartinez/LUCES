@@ -1,2 +1,13 @@
 # LUCES
 TFM LUCES Master SEEI
+DEPARTAMENTO DE TECNOLOGÍA ELECTRÓNICA
+TITULACIÓN: Máster en Sistemas Electrónicos para Entornos Inteligentes
+TÍTULO: LUCES: Sistema inalámbrico de control de luminarias
+PALABRAS CLAVE: LUCES, ILUMINACIÓN, MESH, PCB, RED, SENSORES.
+RESUMEN:
+Este proyecto consiste en el desarrollo hardware, software y documentación de un sistema de control de iluminación inalámbrico. Este sistema permite integrar una luminaria convencional dentro de un sistema de control inteligente conectado a Internet. Su uso está orientado a la iluminación de espacios públicos como calles y parques. El control de encendido y de los niveles lumínicos de las luminarias integradas en el sistema, está basado en temporizaciones horarias, luminosidad ambiente o solar y presencia de usuarios en la vía iluminada. El sistema avisa por correo electrónico en caso de fallo de luminaria y proporciona información del consumo eléctrico, luminosidad ambiente, uso de la vía, etc. La arquitectura está basada en una red WiFi mallada con motas que controlan las luminarias y un nodo central que hace de puente con internet y proporciona el acceso a la gestión del sistema. La verificación de los requisitos se ha realizado sobre los prototipos funcionales desarrollados. Concluir que este sistema destaca por proporcionar la reducción del consumo eléctrico e inicia la posibilidad de integración de sistemas de iluminación en las “Ciudades inteligentes”. 
+
+TITLE: “LIGHTS: Wireless luminaire control system”
+KEYWORDS: LIGHTS, LIGHTING, MESH, PCB, NETWORK, SENSORS.
+ABSTRACT:
+This project consists of the development of hardware, software, and documentation of a wireless lighting control system. This system allows the integration of a conventional luminaire into an intelligent control system connected to the Internet. Its use is oriented to the lighting of public spaces such as streets and parks. The control of switching on and lighting levels of the luminaires integrated in the system is based on hourly timings, ambient or solar luminosity and the presence of users on the illuminated road. The system alerts by e-mail in case of luminaire failure and provides information on power consumption, ambient brightness, road use, etc. The architecture is based on a meshed WiFi network with motes that control the luminaires and a central node that bridges the Internet and provides access to system management. The verification of the requirements has been performed on the developed functional prototypes. To conclude that this system stands out for providing the reduction of electricity consumption and initiates the possibility of integration of lighting systems in "Smart Cities". 
