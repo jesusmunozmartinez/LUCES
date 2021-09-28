@@ -1,0 +1,1 @@
+{"type":"config","mode":"time","mOn":"Off","mLux":"39","mTon":"21:37","mToff":"07:53","lum":"manual","bVal":"67","bT1":"20:37","bT2":"22:37","bT1Lux":"50","bT2Lux":"100","bT3Lux":"80","bPre":"52","email":"lucestfm@gmail.com"}

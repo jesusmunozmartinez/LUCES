@@ -1,0 +1,4 @@
+'{"node":1,"time":"12:23:21","luxes":"40.83","current":"-0.01","pir":1,"fail":"NO"}'
+'{"node":1,"time":"12:23:21","luxes":"40.83","current":"-0.01","pir":1,"fail":"NO"}'
+'{"node":1,"time":"12:23:21","luxes":"40.83","current":"-0.01","pir":1,"fail":"NO"}'
+'{"node":1,"time":"12:23:21","luxes":"40.83","current":"-0.01","pir":1,"fail":"NO"}'
