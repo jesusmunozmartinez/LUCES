@@ -40,7 +40,7 @@ void receivedCallback(uint32_t from, String & msg) {
       sendEmail(node);
     }
     notifyClients(msg);
-    logging(msg);
+    //logging(msg);
 }
 
 void newConnectionCallback(uint32_t nodeId) {
@@ -51,6 +51,7 @@ void newConnectionCallback(uint32_t nodeId) {
 }
 
 void changedConnectionCallback() {
+  syncTimeNode();
   Serial.printf("MESH: Changed connections\n");
  
   nodes = mesh.getNodeList();
@@ -65,10 +66,12 @@ void changedConnectionCallback() {
   }
   Serial.println();
   calc_delay = true;
+
 }
 
 void nodeTimeAdjustedCallback(int32_t offset) {
   Serial.printf("MESH: Adjusted time %u. Offset = %d\n", mesh.getNodeTime(), offset);
+  syncTimeNode();
 }
 
 void delayReceivedCallback(uint32_t from, int32_t delay) {
