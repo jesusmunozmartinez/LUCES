@@ -39,13 +39,22 @@ void initBH1750(){
 
 
 float readCurrent() {
-  float voltageSensor, current;
-  int nMuestras = 10;
+  float voltageSensor = 0.0;
+  float current = 0.0;
+  int nMuestras = 20;
   for (int i=0; i<nMuestras;i++){
-    voltageSensor= analogRead(A0)*(3.2/ 1024.0);    
+    voltageSensor= analogRead(A0)*(3.018/ 1024.0);    
     current=current + (voltageSensor-2.50)/CurrentSensity; 
   }
   current = current/nMuestras;
+
+  //int rd = random(0, 8);
+  //current = (((bright + rd )* 0.88) /1000);
+
+  if (current < 0.008){
+    current = 0.0;
+  }
+
   return current;
 }
 
@@ -53,7 +62,7 @@ float readCurrent() {
 String checkFail(float I){
   String fail = "NO";
   
-  if((onStatus)&&(I<0.1)){ 
+  if((onStatus)&&(bright>15)&&(I<0.009)){ 
     fail = "SI";
     failCount++;
   }else{

@@ -38,7 +38,6 @@ void fadeLum(){
         brightNow--;
         //int value = map(brightNow, 0, 100, 0, 255);
         analogWrite(PWM, brightNow);
-
     }
 }
 
@@ -136,6 +135,7 @@ void controlLum(){
             analogWrite(PWM, 0);
             onStatus = false;
             bright = 0;
+            brightNow = 0;
         }
     }else if (strcmp(config["mode"], "lumAmb") == 0){
         int luxOnOff = atoi(config["mLux"]);
@@ -154,6 +154,7 @@ void controlLum(){
             analogWrite(PWM, 0);
             onStatus = false;
             bright = 0;
+            brightNow = 0;
         }
     }else if (strcmp(config["mode"], "time") == 0){
           if (timeOnRange("mTon","mToff")){  
@@ -171,6 +172,7 @@ void controlLum(){
             analogWrite(PWM, 0);
             onStatus = false;
             bright = 0;
+            brightNow = 0;
         }
     }
 }

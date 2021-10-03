@@ -25,7 +25,7 @@ const   String verFw = "Luces_ESP8266_mota_260921.bin";
 #define    LED             2       // GPIO number of connected LED, ON ESP-12 IS GPIO2
 #define    BLINK_PERIOD    3000    // milliseconds until cycle repeat
 #define    BLINK_DURATION  100     // milliseconds LED is on for
-#define    PIRpin          12       // GPIO number of connected PIR SENSOR: GPIO4
+#define    PIRpin          12       // GPIO number of connected PIR SENSOR
 
 #define    PWM             13       // GPIO number of connected PWM, 1.-10v CONTROL
 #define    TRIAC           15       // GPIO for TRIAC control
